@@ -1120,8 +1120,6 @@ void wcnss_reset_fiq(bool clk_chk_en)
 			wcnss_log_debug_regs_on_bite();
 		} else {
 			wcnss_pronto_log_debug_regs();
-			if (wcnss_get_mux_control())
-				wcnss_log_iris_regs();
 		}
 		if (!wcnss_device_is_shutdown()) {
 			/* Insert memory barrier before writing fiq register */
