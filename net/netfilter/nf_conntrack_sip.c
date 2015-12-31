@@ -257,7 +257,7 @@ static void recalc_header(struct sk_buff *skb, unsigned int skblen,
 {
 	unsigned int datalen;
 	struct tcphdr *tcph;
-	const struct nf_nat_l3proto *l3proto;
+//	const struct nf_nat_l3proto *l3proto;
 
 	/* here we recalculate ip and tcp headers */
 	if (nf_ct_l3num((struct nf_conn *)skb->nfct) == NFPROTO_IPV4) {
@@ -270,10 +270,10 @@ static void recalc_header(struct sk_buff *skb, unsigned int skblen,
 		}
 		datalen = skb->len - protoff;
 		tcph = (struct tcphdr *)((void *)skb->data + protoff);
-		l3proto = __nf_nat_l3proto_find(nf_ct_l3num
-					((struct nf_conn *)skb->nfct));
-		l3proto->csum_recalc(skb, IPPROTO_TCP, tcph, &tcph->check,
-					datalen, oldlen);
+//		l3proto = __nf_nat_l3proto_find(nf_ct_l3num
+//					((struct nf_conn *)skb->nfct));
+//		l3proto->csum_recalc(skb, IPPROTO_TCP, tcph, &tcph->check,
+//					datalen, oldlen);
 }
 
 

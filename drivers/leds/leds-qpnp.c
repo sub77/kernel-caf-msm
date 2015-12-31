@@ -909,10 +909,10 @@ static int qpnp_mpp_set(struct qpnp_led_data *led)
 			if (period_us > INT_MAX / NSEC_PER_USEC) {
 				duty_us = (period_us * led->cdev.brightness) /
 					LED_FULL;
-				rc = pwm_config_us(
-					led->mpp_cfg->pwm_cfg->pwm_dev,
-					duty_us,
-					period_us);
+//				rc = pwm_config_us(
+//					led->mpp_cfg->pwm_cfg->pwm_dev,
+//					duty_us,
+//					period_us);
 			} else {
 				duty_ns = ((period_us * NSEC_PER_USEC) /
 					LED_FULL) * led->cdev.brightness;
@@ -1597,8 +1597,8 @@ static int qpnp_kpdbl_set(struct qpnp_led_data *led)
 		if (!led->kpdbl_cfg->always_on &&
 			!test_bit(KPDBL_MASTER_BIT_INDEX, kpdbl_leds_in_use) &&
 						kpdbl_master) {
-			rc = pwm_config_us(kpdbl_master, 0,
-					kpdbl_master_period_us);
+//			rc = pwm_config_us(kpdbl_master, 0,
+//					kpdbl_master_period_us);
 			if (rc < 0) {
 				dev_err(&led->spmi_dev->dev,
 					"pwm config failed\n");
@@ -1620,10 +1620,10 @@ static int qpnp_kpdbl_set(struct qpnp_led_data *led)
 			if (period_us > INT_MAX / NSEC_PER_USEC) {
 				duty_us = (period_us * led->cdev.brightness) /
 					KPDBL_MAX_LEVEL;
-				rc = pwm_config_us(
-					led->kpdbl_cfg->pwm_cfg->pwm_dev,
-					duty_us,
-					period_us);
+//				rc = pwm_config_us(
+//					led->kpdbl_cfg->pwm_cfg->pwm_dev,
+//					duty_us,
+//					period_us);
 			} else {
 				duty_ns = ((period_us * NSEC_PER_USEC) /
 					KPDBL_MAX_LEVEL) * led->cdev.brightness;
@@ -1663,9 +1663,9 @@ static int qpnp_kpdbl_set(struct qpnp_led_data *led)
 		if (led->kpdbl_cfg->always_on) {
 			if (bitmap_weight(kpdbl_leds_in_use,
 						NUM_KPDBL_LEDS) > 1) {
-				rc = pwm_config_us(
-					led->kpdbl_cfg->pwm_cfg->pwm_dev, 0,
-					led->kpdbl_cfg->pwm_cfg->pwm_period_us);
+//				rc = pwm_config_us(
+//					led->kpdbl_cfg->pwm_cfg->pwm_dev, 0,
+//					led->kpdbl_cfg->pwm_cfg->pwm_period_us);
 				if (rc < 0) {
 					dev_err(&led->spmi_dev->dev,
 						"pwm config failed\n");
@@ -1740,10 +1740,10 @@ static int qpnp_rgb_set(struct qpnp_led_data *led)
 			if (period_us > INT_MAX / NSEC_PER_USEC) {
 				duty_us = (period_us * led->cdev.brightness) /
 					LED_FULL;
-				rc = pwm_config_us(
-					led->rgb_cfg->pwm_cfg->pwm_dev,
-					duty_us,
-					period_us);
+//				rc = pwm_config_us(
+//					led->rgb_cfg->pwm_cfg->pwm_dev,
+//					duty_us,
+//					period_us);
 			} else {
 				duty_ns = ((period_us * NSEC_PER_USEC) /
 					LED_FULL) * led->cdev.brightness;
@@ -2168,10 +2168,10 @@ static int qpnp_pwm_init(struct pwm_config_data *pwm_cfg,
 					"Exceed LUT limit\n");
 				return -EINVAL;
 			}
-			rc = pwm_lut_config(pwm_cfg->pwm_dev,
-				pwm_cfg->pwm_period_us,
-				pwm_cfg->duty_cycles->duty_pcts,
-				pwm_cfg->lut_params);
+//			rc = pwm_lut_config(pwm_cfg->pwm_dev,
+//				pwm_cfg->pwm_period_us,
+//				pwm_cfg->duty_cycles->duty_pcts,
+//				pwm_cfg->lut_params);
 			if (rc < 0) {
 				dev_err(&spmi_dev->dev, "Failed to " \
 					"configure pwm LUT\n");

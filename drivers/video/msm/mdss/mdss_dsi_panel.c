@@ -67,8 +67,8 @@ static void mdss_dsi_panel_bklt_pwm(struct mdss_dsi_ctrl_pdata *ctrl, int level)
 
 	if (level == 0) {
 		if (ctrl->pwm_enabled) {
-			ret = pwm_config_us(ctrl->pwm_bl, level,
-					ctrl->pwm_period);
+//			ret = pwm_config_us(ctrl->pwm_bl, level,
+//					ctrl->pwm_period);
 			if (ret)
 				pr_err("%s: pwm_config_us() failed err=%d.\n",
 						__func__, ret);
@@ -89,7 +89,7 @@ static void mdss_dsi_panel_bklt_pwm(struct mdss_dsi_ctrl_pdata *ctrl, int level)
 					ctrl->ndx, level, duty);
 
 	if (ctrl->pwm_period >= USEC_PER_SEC) {
-		ret = pwm_config_us(ctrl->pwm_bl, duty, ctrl->pwm_period);
+//		ret = pwm_config_us(ctrl->pwm_bl, duty, ctrl->pwm_period);
 		if (ret) {
 			pr_err("%s: pwm_config_us() failed err=%d.\n",
 					__func__, ret);
